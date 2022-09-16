@@ -1,13 +1,90 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+}
+
+body {
+  width: 100%;
+  height: 110vh;
+  background: linear-gradient(
+      rgba(103, 169, 190, 0.5),
+      rgba(136, 180, 201, 0.2)
+    ),
+    url(/src/pages/image.jpg) center;
+  background-size: cover;
+  position: relative;
+  margin-bottom: 0;
+}
+
+/* back Button*/
+.back {
+  color: aliceblue;
+  width: 100px;
+  height: 50px;
+  background-color: #b9dae9;
+  font-size: 24px;
+  margin: 5px 0 35px 0;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  border: 1px solid black;
+  border-radius: 20px !important;
+  overflow: hidden;
+  cursor: pointer;
+  margin-top: 30px;
+  background-color: #ffff;
+  padding: 0 0 20px 0;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 20px 0;
+}
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.button {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  border-radius: 10px;
+  margin: 0 10px 10px 10px;
+}
+
+.buttonChevron {
+  font-size: 40px;
+  display: inline-block;
+  border-radius: 20px;
+  margin: 10px;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  border: 2px solid #ffff;
+  color: #ffff;
+}
+
+.name {
+  padding: 70px 15px 15px 15px;
+}
+
+.active {
+  color: snow;
 }
