@@ -52,7 +52,7 @@ export function About() {
       <a
         className="buttonChevron"
         onClick={() => {
-          navigate("/categories");
+          navigate("/products");
         }}
       >
         <BiChevronsDown />

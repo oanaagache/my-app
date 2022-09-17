@@ -45,7 +45,7 @@ export const Home = () => {
       <a
         className="buttonChevron"
         onClick={() => {
-          navigate("/categories");
+          navigate("/products");
         }}
       >
         <BiChevronsDown />

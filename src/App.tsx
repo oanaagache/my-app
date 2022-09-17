@@ -1,13 +1,13 @@
 import { Routes, Route } from "react-router-dom";
-import { Home } from "./pages/Home";
-import { Products } from "./components/Products";
-import { About } from "./pages/About";
 import { Navbar } from "./components/Navbar";
+import { Home } from "./pages/Home";
+import { About } from "./pages/About";
+import { Products } from "./components/Products";
 import { Contact } from "./pages/Contact";
 import { CartProvider } from "./context/CartContext";
-import "./index.css";
-import Form from "./components/Form";
 import { NotFound } from "./components/NotFound";
+import { Product } from "./pages/Product";
+import "./index.css";
 
 function App() {
   return (
@@ -19,8 +19,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/products/:categ" element={<Products />} />
-          <Route path="/form" element={<Form />} />
+          <Route path="/products/:uuid" element={<Product />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </CartProvider>
