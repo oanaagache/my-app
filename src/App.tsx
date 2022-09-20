@@ -2,11 +2,10 @@ import { Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
-import { Products } from "./components/Products";
+import { Products } from "./components/Products/Products";
 import { Contact } from "./pages/Contact";
 import { CartProvider } from "./context/CartContext";
-import { NotFound } from "./components/NotFound";
-import { Product } from "./pages/Product";
+import { Product } from "./components/Product/Product";
 import "./index.css";
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/products/:uuid" element={<Product />} />
-          <Route path="*" element={<NotFound />} />
         </Routes>
       </CartProvider>
     </>

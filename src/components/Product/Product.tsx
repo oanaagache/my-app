@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
-import { useProduct } from "../hooks/useProduct";
-import { ProductDetails } from "../components/ProductDetails";
+import { useProduct } from "../../hooks/useProduct";
+import { ProductDetails } from "./ProductDetails";
+import { UpdateProduct } from "./CRUD/UpdateProduct";
+import { DeleteProduct } from "./CRUD/DeleteProduct";
 
 export const Product = () => {
   const { uuid } = useParams();
@@ -16,6 +18,8 @@ export const Product = () => {
   return (
     <div>
       <ProductDetails product={product} />
+      <UpdateProduct product={product} />
+      <DeleteProduct uuid={product._uuid} />
     </div>
   );
 };

@@ -1,10 +1,11 @@
-import { Button, Form } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import { useState } from "react";
-import { useCreateProduct } from "../hooks/useCreateProduct";
+import { useCreateProduct } from "../../../hooks/useCreateProduct";
 
 export const CreateProduct = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState(1);
+  const [isOpen, setIsOpen] = useState(false);
 
   const { isLoading, isError, createProduct, product } = useCreateProduct();
 
@@ -40,7 +41,7 @@ export const CreateProduct = () => {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" onClick={() => isLoading}>
           Create
         </Button>
       </Form>

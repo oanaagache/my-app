@@ -2,7 +2,7 @@ import { Button } from "react-bootstrap";
 import "../index.css";
 import { useNavigate } from "react-router-dom";
 
-export const ButtonC = () => {
+export const ButtonBack = () => {
   let navigate = useNavigate();
   return (
     <div>

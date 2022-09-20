@@ -1,11 +1,18 @@
-import { Card } from "react-bootstrap";
-import { IProduct } from "../types/IProduct";
+import { useNavigate } from "react-router-dom";
+import { Card, Button } from "react-bootstrap";
+import "../../index.css";
+import { IProduct } from "../../types/IProduct";
 
-interface ProductsDetailsProps {
+interface ProductCardProps {
   product: IProduct;
 }
 
-export const ProductDetails = ({ product }: ProductsDetailsProps) => {
+export function ProductCard({ product }: ProductCardProps) {
+  let navigate = useNavigate();
+  const handleRedirect = () => {
+    navigate(`/products/${product._uuid}`);
+  };
+
   return (
     <Card className="card" style={{ width: "380px" }}>
       <Card.Img
@@ -29,6 +36,7 @@ export const ProductDetails = ({ product }: ProductsDetailsProps) => {
           <span>{product.price}$</span>
         </Card.Title>
       </Card.Body>
+      <Button onClick={handleRedirect}>Details </Button>
     </Card>
   );
-};
+}

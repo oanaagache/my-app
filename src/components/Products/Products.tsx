@@ -1,8 +1,8 @@
-import { ProductCard } from "./ProductCard";
-import { useProducts } from "../hooks/useProducts";
+import { ProductCard } from "../Product/ProductCard";
+import { useProducts } from "../../hooks/useProducts";
 import { Button, Modal } from "react-bootstrap";
 import { useState } from "react";
-import { CreateProduct } from "./CreateProduct";
+import { CreateProduct } from "../Product/CRUD/CreateProduct";
 
 export const Products = () => {
   const { isLoading, isError, products } = useProducts();
