@@ -9,6 +9,7 @@ interface IUpdateProductProps {
 
 export const UpdateProduct = ({ product }: IUpdateProductProps) => {
   const [name, setName] = useState(product.name);
+  const [category, setCategory] = useState(product.category);
   const [price, setPrice] = useState(product.price);
 
   const {
@@ -23,6 +24,7 @@ export const UpdateProduct = ({ product }: IUpdateProductProps) => {
       _uuid: product._uuid,
       name,
       price,
+      category,
     });
     e.preventDefault();
   };
@@ -30,7 +32,12 @@ export const UpdateProduct = ({ product }: IUpdateProductProps) => {
   return (
     <div>
       <Form onSubmit={handleUpdate}>
-        <Form.Group className="mb-3">
+        <Form.Group
+          className="mb-3"
+          style={{
+            margin: "15px 30px 15px 30px",
+          }}
+        >
           <Form.Label>Name:</Form.Label>
           <Form.Control
             type="Name"
@@ -39,7 +46,26 @@ export const UpdateProduct = ({ product }: IUpdateProductProps) => {
             value={name}
           />
         </Form.Group>
-        <Form.Group className="mb-3">
+        <Form.Group
+          className="mb-3"
+          style={{
+            margin: "15px 30px 15px 30px",
+          }}
+        >
+          <Form.Label>Category:</Form.Label>
+          <Form.Control
+            type="Category"
+            placeholder="Category"
+            onChange={(e) => setCategory(e.target.value)}
+            value={category}
+          />
+        </Form.Group>
+        <Form.Group
+          className="mb-3"
+          style={{
+            margin: "15px 30px 15px 30px",
+          }}
+        >
           <Form.Label>Price:</Form.Label>
           <Form.Control
             type="Price"
@@ -49,7 +75,14 @@ export const UpdateProduct = ({ product }: IUpdateProductProps) => {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button
+          variant="primary"
+          type="submit"
+          style={{
+            margin: "15px 30px 15px 30px",
+            backgroundColor: "#3f6d83",
+          }}
+        >
           Update
         </Button>
       </Form>

@@ -35,8 +35,13 @@ export function ProductCard({ product }: ProductCardProps) {
           <span style={{ paddingRight: "130px" }}>{product.name}</span>
           <span>{product.price}$</span>
         </Card.Title>
+        <div style={{ paddingRight: "130px", fontWeight: "bold" }}>
+          {product.category}
+        </div>
       </Card.Body>
-      <Button onClick={handleRedirect}>Details </Button>
+      <Button onClick={handleRedirect} style={{ backgroundColor: "#3f6d83" }}>
+        Details{" "}
+      </Button>
     </Card>
   );
 }

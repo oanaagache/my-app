@@ -31,7 +31,7 @@ export function Navbar() {
           className="d-flex align-items-start justify-content-center"
           style={{
             fontSize: "30px",
-            gap: "180px",
+            gap: "150px",
           }}
         >
           <Nav.Link to="/" as={NavLink}>
@@ -40,11 +40,15 @@ export function Navbar() {
           <Nav.Link to="/about" as={NavLink}>
             About
           </Nav.Link>
-          <Nav.Link to="/products" as={NavLink}>
-            Products
+          <Nav.Link to="/categories" as={NavLink}>
+            Categories
           </Nav.Link>
+
           <Nav.Link to="/contact" as={NavLink}>
             Contact
+          </Nav.Link>
+          <Nav.Link to="/products" as={NavLink}>
+            Products
           </Nav.Link>
         </Nav>
       </Container>

@@ -13,5 +13,15 @@ export const DeleteProduct = ({ uuid }: DeleteProductProps) => {
     await removeProduct(uuid);
     navigate("/products");
   };
-  return <Button onClick={handleDelete}>Delete</Button>;
+  return (
+    <Button
+      variant="danger"
+      onClick={handleDelete}
+      style={{
+        margin: "15px 30px 15px 30px",
+      }}
+    >
+      Delete
+    </Button>
+  );
 };

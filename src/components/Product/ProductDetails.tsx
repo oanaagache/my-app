@@ -28,6 +28,9 @@ export const ProductDetails = ({ product }: ProductsDetailsProps) => {
           <span style={{ paddingRight: "130px" }}>{product.name}</span>
           <span>{product.price}$</span>
         </Card.Title>
+        <div style={{ paddingRight: "130px", fontWeight: "bold" }}>
+          {product.category}
+        </div>
       </Card.Body>
     </Card>
   );

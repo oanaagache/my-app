@@ -6,6 +6,7 @@ import { Products } from "./components/Products/Products";
 import { Contact } from "./pages/Contact";
 import { CartProvider } from "./context/CartContext";
 import { Product } from "./components/Product/Product";
+import { Categories } from "./pages/Categories";
 import "./index.css";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/categories" element={<Categories />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/products/:uuid" element={<Product />} />
         </Routes>

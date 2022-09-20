@@ -4,8 +4,8 @@ import { useCreateProduct } from "../../../hooks/useCreateProduct";
 
 export const CreateProduct = () => {
   const [name, setName] = useState("");
+  const [category, setCategory] = useState("");
   const [price, setPrice] = useState(1);
-  const [isOpen, setIsOpen] = useState(false);
 
   const { isLoading, isError, createProduct, product } = useCreateProduct();
 
@@ -14,6 +14,7 @@ export const CreateProduct = () => {
     createProduct({
       name,
       price,
+      category,
     });
     setName("");
     setPrice(1);
@@ -23,7 +24,12 @@ export const CreateProduct = () => {
     <div>
       {product && <div>You created the product {product.name}</div>}
       <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3">
+        <Form.Group
+          className="mb-3"
+          style={{
+            margin: "15px 30px 15px 30px",
+          }}
+        >
           <Form.Label>Name:</Form.Label>
           <Form.Control
             type="Name"
@@ -32,7 +38,26 @@ export const CreateProduct = () => {
             value={name}
           />
         </Form.Group>
-        <Form.Group className="mb-3">
+        <Form.Group
+          className="mb-3"
+          style={{
+            margin: "15px 30px 15px 30px",
+          }}
+        >
+          <Form.Label>Category:</Form.Label>
+          <Form.Control
+            type="Category"
+            placeholder="Category"
+            onChange={(e) => setCategory(e.target.value)}
+            value={category}
+          />
+        </Form.Group>
+        <Form.Group
+          className="mb-3"
+          style={{
+            margin: "15px 30px 15px 30px",
+          }}
+        >
           <Form.Label>Price:</Form.Label>
           <Form.Control
             type="Price"
@@ -41,7 +66,15 @@ export const CreateProduct = () => {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit" onClick={() => isLoading}>
+        <Button
+          variant="primary"
+          type="submit"
+          onClick={() => isLoading}
+          style={{
+            margin: "15px 30px 15px 30px",
+            backgroundColor: "#3f6d83",
+          }}
+        >
           Create
         </Button>
       </Form>
