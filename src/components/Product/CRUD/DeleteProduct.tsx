@@ -1,5 +1,5 @@
 import { Button } from "react-bootstrap";
-import { useDeleteProduct } from "../../../hooks/useDeleteProduct";
+import { useDeleteProduct } from "../../../hooks/custom/useDeleteProduct";
 import { useNavigate } from "react-router-dom";
 
 interface DeleteProductProps {

@@ -1,7 +1,7 @@
 import { Form, Button } from "react-bootstrap";
 import { useState } from "react";
 import { IProduct } from "../../../types/IProduct";
-import { useUpdateProduct } from "../../../hooks/useUpdateProduct";
+import { useUpdateProduct } from "../../../hooks/custom/useUpdateProduct";
 
 interface IUpdateProductProps {
   product: IProduct;

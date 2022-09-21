@@ -1,8 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { BiCart } from "react-icons/bi";
 import { GiMountaintop } from "react-icons/gi";
-import { useCart } from "../context/CartContext";
-import { Button, Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
+import { Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 
 export function Navbar() {
   return (

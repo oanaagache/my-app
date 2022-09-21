@@ -1,4 +1,4 @@
-export interface IPutProductReq {
+export interface IUpdateProductReq {
   name: string;
   price: number;
   category: string;

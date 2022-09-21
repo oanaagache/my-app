@@ -1,6 +1,6 @@
 import { Card, Button } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
-import { useProducts } from "../../hooks/useProducts";
+import { useProducts } from "../../hooks/custom/useProducts";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 

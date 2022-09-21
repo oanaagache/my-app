@@ -1,14 +1,14 @@
 import { useCallback, useState } from "react";
-import { putProduct } from "../service/productService";
-import { IProduct } from "../types/IProduct";
-import { IPutProductReq } from "../types/IPutProductReq";
+import { putProduct } from "../../service/productService";
+import { IProduct } from "../../types/IProduct";
+import { IUpdateProductReq } from "../../types/UpdateProductReq";
 
 export const useUpdateProduct = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [product, setProduct] = useState<IProduct>();
 
-  const updateProduct = useCallback(async (req: IPutProductReq) => {
+  const updateProduct = useCallback(async (req: IUpdateProductReq) => {
     try {
       setIsLoading(true);
       setIsError(false);

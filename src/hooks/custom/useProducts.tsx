@@ -1,6 +1,6 @@
-import { IProduct } from "../types/IProduct";
+import { IProduct } from "../../types/IProduct";
 import { useEffect, useState } from "react";
-import { getProducts } from "../service/productService";
+import { getProducts } from "../../service/productService";
 
 export const useProducts = () => {
   const [products, setProducts] = useState<IProduct[]>([]);

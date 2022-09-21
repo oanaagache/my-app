@@ -1,14 +1,17 @@
 import { ProductCard } from "../Product/ProductCard";
-import { useProducts } from "../../hooks/useProducts";
+//import { useProducts } from "../../hooks/custom/useProducts";
 import { Button, Modal } from "react-bootstrap";
 import { useState } from "react";
 import { CreateProduct } from "../Product/CRUD/CreateProduct";
 import { useNavigate } from "react-router-dom";
+import { useProductsQuery } from "../../hooks/query/useProductsQuery";
 
 export const Products = () => {
   let navigate = useNavigate();
-  const { isLoading, isError, products } = useProducts();
   const [show, setShow] = useState(false);
+
+  // const { isLoading, isError, products } = useProducts();
+  const { isLoading, isError, data: products } = useProductsQuery();
 
   if (isLoading) {
     return <div style={{ color: "red" }}>Loading...</div>;

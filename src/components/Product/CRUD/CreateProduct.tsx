@@ -1,28 +1,40 @@
 import { Form, Button } from "react-bootstrap";
 import { useState } from "react";
-import { useCreateProduct } from "../../../hooks/useCreateProduct";
+import { useCreateProduct } from "../../../hooks/custom/useCreateProduct";
+import { useCreateProductMutation } from "../../../hooks/query/useCreateProductMutation";
 
 export const CreateProduct = () => {
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState(1);
 
-  const { isLoading, isError, createProduct, product } = useCreateProduct();
+  // const { isLoading, isError, createProduct, product } = useCreateProduct();
+
+  const { isLoading, mutate: createProduct, data } = useCreateProductMutation();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    createProduct({
-      name,
-      price,
-      category,
-    });
-    setName("");
-    setPrice(1);
+    createProduct(
+      {
+        name,
+        price,
+        category,
+      },
+      {
+        onSuccess: () => {
+          setName("");
+          setCategory("");
+          setPrice(1);
+        },
+      }
+    );
   };
 
   return (
     <div>
-      {product && <div>You created the product {product.name}</div>}
+      {data?.items[0] && (
+        <div>You created the product {data.items[0].name}</div>
+      )}
       <Form onSubmit={handleSubmit}>
         <Form.Group
           className="mb-3"

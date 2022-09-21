@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
-import { deleteProduct } from "../service/productService";
-import { IProduct } from "../types/IProduct";
+import { deleteProduct } from "../../service/productService";
+import { IProduct } from "../../types/IProduct";
 
 export const useDeleteProduct = () => {
   const [product, setProduct] = useState<IProduct>();

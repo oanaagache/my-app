@@ -1,15 +1,17 @@
 import { useParams } from "react-router-dom";
-import { useProduct } from "../../hooks/useProduct";
+//import { useProduct } from "../../hooks/useProduct";
 import { ProductDetails } from "./ProductDetails";
 import { UpdateProduct } from "./CRUD/UpdateProduct";
 import { DeleteProduct } from "./CRUD/DeleteProduct";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { useProductQuery } from "../../hooks/query/useProductQuery";
 
 export const Product = () => {
   let navigate = useNavigate();
   const { uuid } = useParams();
-  const { product, isLoading, isError } = useProduct(uuid || "");
+  // const { product, isLoading, isError } = useProduct(uuid || "");
+  const { isLoading, isError, data: product } = useProductQuery(uuid || "");
 
   if (isLoading || !product) {
     return <div style={{ color: "red" }}>Loading...</div>;

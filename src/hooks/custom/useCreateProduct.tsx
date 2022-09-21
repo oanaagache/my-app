@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
-import { postProduct } from "../service/productService";
-import { ICreateProductReq } from "../types/ICreateProductReq";
-import { IProduct } from "../types/IProduct";
+import { postProduct } from "../../service/productService";
+import { ICreateProductReq } from "../../types/ICreateProductReq";
+import { IProduct } from "../../types/IProduct";
 
 export const useCreateProduct = () => {
   const [isLoading, setIsLoading] = useState(false);

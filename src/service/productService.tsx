@@ -2,7 +2,7 @@ import axios from "axios";
 import { IProductsPagination } from "../types/IProductsPagination";
 import { IProduct } from "../types/IProduct";
 import { ICreateProductReq } from "../types/ICreateProductReq";
-import { IPutProductReq } from "../types/IPutProductReq";
+import { IUpdateProductReq } from "../types/UpdateProductReq";
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:5004",
@@ -26,7 +26,7 @@ export const postProduct = async (req: ICreateProductReq) => {
   return data;
 };
 
-export const putProduct = async (req: IPutProductReq) => {
+export const putProduct = async (req: IUpdateProductReq) => {
   const { _uuid, ...rest } = req;
   const { data } = await axiosInstance.put<IProduct>(
     `/products/${req._uuid}`,

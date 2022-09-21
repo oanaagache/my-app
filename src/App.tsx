@@ -1,15 +1,16 @@
 import { Navbar } from "./components/Navbar";
-import { CartProvider } from "./context/CartContext";
-import "./index.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AppRoutes from "./AppRoutes";
+import "./index.css";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 export default function App() {
+  const queryClient = new QueryClient();
   return (
-    <>
-      <CartProvider>
-        <Navbar />
-        <AppRoutes />
-      </CartProvider>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <Navbar />
+      <AppRoutes />
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   );
 }
