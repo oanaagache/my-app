@@ -7,8 +7,8 @@ export function About() {
   const mystyle = {
     margin: "20px ",
     fontSize: "25px",
-    fontWeight: "500",
-    lineHeight: "36px",
+    fontWeight: "400",
+    lineHeight: "26px",
   };
 
   return (

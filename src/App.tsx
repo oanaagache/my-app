@@ -6,7 +6,7 @@ import { Products } from "./components/Products/Products";
 import { Contact } from "./pages/Contact";
 import { CartProvider } from "./context/CartContext";
 import { Product } from "./components/Product/Product";
-import { Categories } from "./pages/Categories";
+import { Categories } from "./components/Product/Categories";
 import "./index.css";
 
 function App() {

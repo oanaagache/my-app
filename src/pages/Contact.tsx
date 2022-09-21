@@ -7,7 +7,7 @@ export function Contact() {
   const mystyle = {
     margin: "20px ",
     fontSize: "25px",
-    fontWeight: "500",
+    fontWeight: "400",
     lineHeight: "36px",
   };
   return (

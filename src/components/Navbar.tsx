@@ -10,7 +10,7 @@ export function Navbar() {
       <Container className="d-flex align-items-start justify-content-center">
         <NavbarBs.Brand
           style={{
-            fontSize: "30px",
+            fontSize: "32px",
             position: "absolute",
             top: "10px",
             left: "20px",
@@ -30,12 +30,12 @@ export function Navbar() {
         <Nav
           className="d-flex align-items-start justify-content-center"
           style={{
-            fontSize: "30px",
-            gap: "150px",
+            fontSize: "20px",
+            gap: "180px",
           }}
         >
-          <Nav.Link to="/" as={NavLink}>
-            Home
+          <Nav.Link as={NavLink} to="/">
+            Home{" "}
           </Nav.Link>
           <Nav.Link to="/about" as={NavLink}>
             About

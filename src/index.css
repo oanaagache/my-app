@@ -70,12 +70,12 @@ body {
 }
 
 .buttonChevron {
-  font-size: 40px;
+  font-size: 30px;
   display: inline-block;
-  border-radius: 20px;
+  border-radius: 10px;
   margin: 10px;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   text-align: center;
   border: 2px solid #ffff;
   color: #ffff;
