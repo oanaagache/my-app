@@ -5,6 +5,7 @@ import { useState } from "react";
 import { CreateProduct } from "../Product/CRUD/CreateProduct";
 import { useNavigate } from "react-router-dom";
 import { useProductsQuery } from "../../hooks/query/useProductsQuery";
+import { ButtonBack } from "../ButtonBack";
 
 export const Products = () => {
   let navigate = useNavigate();
@@ -37,19 +38,7 @@ export const Products = () => {
           <CreateProduct />
         </Modal>
 
-        <Button
-          className="back"
-          style={{
-            backgroundColor: "#b9dae9",
-            border: "#5d8799",
-            margin: "60px 20px 50px 20px",
-          }}
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          Back
-        </Button>
+        <ButtonBack />
 
         <div>
           <Button

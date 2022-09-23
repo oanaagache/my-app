@@ -13,7 +13,7 @@ export const ButtonBack = () => {
           border: "#5d8799",
         }}
         onClick={() => {
-          navigate("/categories");
+          navigate("/");
         }}
       >
         Back

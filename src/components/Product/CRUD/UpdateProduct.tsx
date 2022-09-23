@@ -29,15 +29,13 @@ export const UpdateProduct = ({ product }: IUpdateProductProps) => {
     e.preventDefault();
   };
 
+  const style1 = {
+    margin: "15px 30px 15px 30px",
+  };
   return (
     <div>
       <Form onSubmit={handleUpdate}>
-        <Form.Group
-          className="mb-3"
-          style={{
-            margin: "15px 30px 15px 30px",
-          }}
-        >
+        <Form.Group className="mb-3" style={style1}>
           <Form.Label>Name:</Form.Label>
           <Form.Control
             type="Name"
@@ -46,12 +44,7 @@ export const UpdateProduct = ({ product }: IUpdateProductProps) => {
             value={name}
           />
         </Form.Group>
-        <Form.Group
-          className="mb-3"
-          style={{
-            margin: "15px 30px 15px 30px",
-          }}
-        >
+        <Form.Group className="mb-3" style={style1}>
           <Form.Label>Category:</Form.Label>
           <Form.Control
             type="Category"
@@ -60,12 +53,7 @@ export const UpdateProduct = ({ product }: IUpdateProductProps) => {
             value={category}
           />
         </Form.Group>
-        <Form.Group
-          className="mb-3"
-          style={{
-            margin: "15px 30px 15px 30px",
-          }}
-        >
+        <Form.Group className="mb-3" style={style1}>
           <Form.Label>Price:</Form.Label>
           <Form.Control
             type="Price"

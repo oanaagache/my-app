@@ -4,7 +4,7 @@ import { About } from "./pages/About";
 import { Products } from "./components/Products/Products";
 import { Contact } from "./pages/Contact";
 import { Product } from "./components/Product/Product";
-import { Categories } from "./components/Product/Categories";
+import { Categories } from "./components/Categories";
 import "./index.css";
 
 export default function AppRoutes() {

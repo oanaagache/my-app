@@ -1,0 +1,35 @@
+.card {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  border: 1px solid black;
+  border-radius: 20px !important;
+  overflow: hidden;
+  cursor: pointer;
+  margin-top: 60px;
+  background-color: #ffff;
+  padding: 0 0 20px 0;
+  width: 380px;
+}
+
+.cardImg {
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+}
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 20px 0;
+}
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  height: 50px;
+  padding: 20px 0 35px 0;
+}
