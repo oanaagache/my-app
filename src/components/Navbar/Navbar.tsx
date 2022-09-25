@@ -1,11 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { GiMountaintop } from "react-icons/gi";
 import { Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
+import { Counter } from "../Counter";
 
 export function Navbar() {
   return (
     <NavbarBs>
       <Container className="d-flex align-items-start justify-content-center">
+        <Counter />
         <NavbarBs.Brand
           style={{
             fontSize: "32px",

@@ -6,6 +6,7 @@ import { CreateProduct } from "../Product/CRUD/CreateProduct";
 import { useNavigate } from "react-router-dom";
 import { useProductsQuery } from "../../hooks/queries/useProductsQuery";
 import { ButtonBack } from "../ButtonBack/ButtonBack";
+import { useProductsSelector } from "../../hooks/selectors/useProductsSelectors";
 
 export const Products = () => {
   let navigate = useNavigate();
@@ -13,6 +14,9 @@ export const Products = () => {
 
   // const { isLoading, isError, products } = useProducts();
   const { isLoading, isError, data: products } = useProductsQuery();
+
+  const productsRedux = useProductsSelector();
+  console.log(productsRedux);
 
   if (isLoading) {
     return <div style={{ color: "red" }}>Loading...</div>;
