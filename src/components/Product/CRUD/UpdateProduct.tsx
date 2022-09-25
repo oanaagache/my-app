@@ -2,6 +2,7 @@ import { Form, Button } from "react-bootstrap";
 import { useState } from "react";
 import { IProduct } from "../../../types/IProduct";
 import { useUpdateProduct } from "../../../hooks/custom/useUpdateProduct";
+import { useUpdateProductMutation } from "../../../hooks/mutations/useUpdateProductMutation";
 
 interface IUpdateProductProps {
   product: IProduct;
@@ -12,20 +13,22 @@ export const UpdateProduct = ({ product }: IUpdateProductProps) => {
   const [category, setCategory] = useState(product.category);
   const [price, setPrice] = useState(product.price);
 
-  const {
-    isLoading,
-    isError,
-    updateProduct,
-    product: updatedProduct,
-  } = useUpdateProduct();
+  // const {
+  //   isLoading,
+  //   isError,
+  //   updateProduct,
+  //   product: updatedProduct,
+  // } = useUpdateProduct(); =>
+  const { isLoading, isError, mutate } = useUpdateProductMutation();
 
   const handleUpdate = async (e: React.FormEvent<HTMLFormElement>) => {
-    updateProduct({
-      _uuid: product._uuid,
-      name,
-      price,
-      category,
-    });
+    // updateProduct({
+    //   _uuid: product._uuid,
+    //   name,
+    //   price,
+    //   category,
+    // });
+    mutate({ _uuid: product._uuid, name, price, category });
     e.preventDefault();
   };
 
@@ -66,6 +69,7 @@ export const UpdateProduct = ({ product }: IUpdateProductProps) => {
         <Button
           variant="primary"
           type="submit"
+          onClick={() => isLoading}
           style={{
             margin: "15px 30px 15px 30px",
             backgroundColor: "#3f6d83",

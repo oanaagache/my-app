@@ -1,10 +1,10 @@
 import { Card } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
-import { useProducts } from "../hooks/custom/useProducts";
+import { useProducts } from "../../hooks/custom/useProducts";
 import Form from "react-bootstrap/Form";
 import "./Categories.css";
-import "./Product/Card.css";
-import { ButtonBack } from "./ButtonBack";
+import "../../index.css";
+import { ButtonBack } from "../ButtonBack/ButtonBack";
 
 export const Categories = () => {
   let [searchParams, setSearchParams] = useSearchParams();

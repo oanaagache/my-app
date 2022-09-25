@@ -1,5 +1,5 @@
 import { Button } from "react-bootstrap";
-import "../index.css";
+import "./ButtonBack.css";
 import { useNavigate } from "react-router-dom";
 
 export const ButtonBack = () => {

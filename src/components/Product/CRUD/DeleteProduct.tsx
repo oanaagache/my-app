@@ -1,6 +1,7 @@
 import { Button } from "react-bootstrap";
-import { useDeleteProduct } from "../../../hooks/custom/useDeleteProduct";
+//import { useDeleteProduct } from "../../../hooks/custom/useDeleteProduct";
 import { useNavigate } from "react-router-dom";
+import { useDeleteProductMutation } from "../../../hooks/mutations/useDeleteProductMutation";
 
 interface DeleteProductProps {
   uuid: string;
@@ -8,11 +9,19 @@ interface DeleteProductProps {
 
 export const DeleteProduct = ({ uuid }: DeleteProductProps) => {
   let navigate = useNavigate();
-  const { isLoading, isError, product, removeProduct } = useDeleteProduct();
-  const handleDelete = async () => {
-    await removeProduct(uuid);
+  //const { isLoading, isError, product, removeProduct } = useDeleteProduct();
+  const { isLoading, isError, mutate } = useDeleteProductMutation();
+
+  // const handleDelete = async () => {
+  //   await removeProduct(uuid);
+  //   navigate("/products");
+  // };
+
+  const handleDelete = () => {
+    mutate(uuid);
     navigate("/products");
   };
+
   return (
     <Button
       variant="danger"

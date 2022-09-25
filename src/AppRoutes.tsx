@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
-import { About } from "./pages/About";
+import { About } from "./pages/About/About";
 import { Products } from "./components/Products/Products";
-import { Contact } from "./pages/Contact";
+import { Contact } from "./pages/Contact/Contact";
 import { Product } from "./components/Product/Product";
-import { Categories } from "./components/Categories";
+import { Categories } from "./components/Categories/Categories";
 import "./index.css";
 
 export default function AppRoutes() {

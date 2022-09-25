@@ -1,28 +1,25 @@
-import { Form, Button } from "react-bootstrap";
-import InputGroup from "react-bootstrap/InputGroup";
-import { useState } from "react";
+import { Button } from "react-bootstrap";
+//import { useState } from "react";
 //import { useCreateProduct } from "../../../hooks/custom/useCreateProduct";
-import { useCreateProductMutation } from "../../../hooks/query/useCreateProductMutation";
+import { useCreateProductMutation } from "../../../hooks/mutations/useCreateProductMutation";
 import { useForm } from "react-hook-form";
-import { ICreateProductReq } from "../../../types/ICreateProductReq";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-// import { useFormState } from "react-hook-form/dist/useFormState";
 
 const createProductSchema = z.object({
   name: z.string().min(3, "Name too short").max(20),
   category: z.string().min(3).max(20),
-  price: z.string().refine((val) => Number(val) > 1, {
-    message: "Not a number",
+  price: z.string().refine((val) => Number(val) >= 1, {
+    message: "Price must be greater than equal to 1",
   }),
 });
 
 type FormFields = z.infer<typeof createProductSchema>;
 
 export const CreateProduct = () => {
-  const [name, setName] = useState("");
-  const [category, setCategory] = useState("");
-  const [price, setPrice] = useState(1);
+  // const [name, setName] = useState("");
+  // const [category, setCategory] = useState("");
+  // const [price, setPrice] = useState(1);
 
   // const { isLoading, isError, createProduct, product } = useCreateProduct(); =>
   const { isLoading, mutate: createProduct, data } = useCreateProductMutation();
@@ -42,15 +39,24 @@ export const CreateProduct = () => {
     resolver: zodResolver(createProductSchema),
   });
 
+  //resolver -connection zod-useForm hook
+
   const onSubmit = async (values: FormFields) => {
     const { price, ...rest } = values;
+    // createProduct(
+    // { name,price,category}
+    //values, {
+    //   onSuccess: () => {
+    //     setTitle("");
+    //     setCategory("");
+    //     setPrice(1);
+    //   },
+    // });
+
     createProduct(
       { price: Number(price), ...rest },
       {
         onSuccess: () => {
-          // setTitle("")
-          // setCategory("")
-          // setPrice(1)
           reset();
         },
       }

@@ -2,7 +2,7 @@ import axios from "axios";
 import { IProductsPagination } from "../types/IProductsPagination";
 import { IProduct } from "../types/IProduct";
 import { ICreateProductReq } from "../types/ICreateProductReq";
-import { IUpdateProductReq } from "../types/UpdateProductReq";
+import { IUpdateProductReq } from "../types/IUpdateProductReq";
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:5004",

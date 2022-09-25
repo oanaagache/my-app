@@ -5,12 +5,12 @@ import { UpdateProduct } from "./CRUD/UpdateProduct";
 import { DeleteProduct } from "./CRUD/DeleteProduct";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { useProductQuery } from "../../hooks/query/useProductQuery";
+import { useProductQuery } from "../../hooks/queries/useProductQuery";
 
 export const Product = () => {
   let navigate = useNavigate();
   const { uuid } = useParams();
-  // const { product, isLoading, isError } = useProduct(uuid || "");
+  // const { isLoading, isError, product } = useProduct(uuid || "");
   const { isLoading, isError, data: product } = useProductQuery(uuid || "");
 
   if (isLoading || !product) {

@@ -1,0 +1,20 @@
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  bottom: 10px;
+  top: 100px;
+  left: 10px;
+  right: 10px;
+  flex-direction: column;
+  text-align: center;
+  color: #ffffff;
+}
+
+.h2-contact {
+  margin: 20px;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 26px;
+}

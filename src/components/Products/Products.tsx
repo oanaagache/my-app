@@ -4,8 +4,8 @@ import { Button, Modal } from "react-bootstrap";
 import { useState } from "react";
 import { CreateProduct } from "../Product/CRUD/CreateProduct";
 import { useNavigate } from "react-router-dom";
-import { useProductsQuery } from "../../hooks/query/useProductsQuery";
-import { ButtonBack } from "../ButtonBack";
+import { useProductsQuery } from "../../hooks/queries/useProductsQuery";
+import { ButtonBack } from "../ButtonBack/ButtonBack";
 
 export const Products = () => {
   let navigate = useNavigate();

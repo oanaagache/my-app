@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getProduct } from "../service/productService";
-import { IProduct } from "../types/IProduct";
+import { getProduct } from "../../service/productService";
+import { IProduct } from "../../types/IProduct";
 
 export const useProduct = (uuid: string) => {
   const [product, setProduct] = useState<IProduct>();
@@ -22,8 +22,8 @@ export const useProduct = (uuid: string) => {
   }, [uuid]);
 
   return {
-    product,
     isLoading,
     isError,
+    product,
   };
 };
