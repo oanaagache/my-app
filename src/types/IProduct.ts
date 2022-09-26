@@ -1,4 +1,5 @@
 export interface IProduct {
+  availableCategories: any;
   _created: number;
   _data_type: string;
   _is_deleted: boolean;

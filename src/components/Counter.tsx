@@ -1,7 +1,7 @@
 import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useCountSelector } from "../hooks/selectors/useCountSelector";
-import { increment, decrement } from "../store/counters/counterActionCreators";
+import { increment, decrement } from "../store/counterSlice";
 import { RootState } from "../store/store";
 
 export const Counter = () => {

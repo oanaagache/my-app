@@ -13,9 +13,11 @@ export default function AppRoutes() {
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
       <Route path="/products" element={<Products />} />
-      <Route path="/categories" element={<Categories />} />
+      <Route path="/categories/" element={<Categories />} />
+
       <Route path="/contact" element={<Contact />} />
       <Route path="/products/:uuid" element={<Product />} />
+      <Route path="/categories/:category" element={<Categories />} />
     </Routes>
   );
 }

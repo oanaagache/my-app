@@ -1,16 +1,25 @@
 import { Card } from "react-bootstrap";
-import { useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { useProducts } from "../../hooks/custom/useProducts";
 import Form from "react-bootstrap/Form";
 import "./Categories.css";
 import "../../index.css";
 import { ButtonBack } from "../ButtonBack/ButtonBack";
+import { useSearchSelector } from "../../hooks/selectors/useSearchSelector";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 export const Categories = () => {
   let [searchParams, setSearchParams] = useSearchParams();
   const { products } = useProducts();
   const cat = searchParams.get("category");
-  console.log(cat);
+  //console.log(cat);
+
+  // let [search, setSearch] = useState("");
+  // const { category } = useParams();
+  // const dispatch = useDispatch();
+  // const products = useSearchSelector(category);
+  // console.log(products);
 
   return (
     <div>
@@ -25,6 +34,8 @@ export const Categories = () => {
           <Form.Select
             aria-label="Default select example"
             onChange={(e) => setSearchParams({ category: e.target.value })}
+            //onChange={(e) => setSearch(e.target.value)}
+
             style={{ margin: "20px" }}
           >
             <option>Select Option</option>
