@@ -4,5 +4,5 @@ import { IProduct } from "../../types/IProduct";
 
 export const useProductsSelector = () => {
   const products = useSelector((state: RootState) => state.products.products);
-  return products;
+  return products as IProduct[];
 };

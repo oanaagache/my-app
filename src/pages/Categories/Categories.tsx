@@ -4,8 +4,8 @@ import { useProducts } from "../../hooks/custom/useProducts";
 import Form from "react-bootstrap/Form";
 import "./Categories.css";
 import "../../index.css";
-import { ButtonBack } from "../ButtonBack/ButtonBack";
-import { useSearchSelector } from "../../hooks/selectors/useSearchSelector";
+import { ButtonBack } from "../../components/ButtonBack/ButtonBack";
+//import { useSearchSelector } from "../../hooks/selectors/useSearchSelector";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
@@ -23,7 +23,7 @@ export const Categories = () => {
 
   return (
     <div>
-      <h2 className="categories">
+      <h2 className="categories-title">
         LET'S SHOP! Choose a product you are interested in, or use our contact
         form to ask any advice you might need. We are always happy to help!
       </h2>
@@ -35,8 +35,6 @@ export const Categories = () => {
             aria-label="Default select example"
             onChange={(e) => setSearchParams({ category: e.target.value })}
             //onChange={(e) => setSearch(e.target.value)}
-
-            style={{ margin: "20px" }}
           >
             <option>Select Option</option>
             <option value="Backpacks">Backpacks</option>
@@ -49,7 +47,7 @@ export const Categories = () => {
         </div>
         <div
           className="d-flex justify-content-around flex-wrap"
-          style={{ margin: "20px" }}
+          style={{ margin: "10px" }}
         >
           {products
             .filter((product) => {

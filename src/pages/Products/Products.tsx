@@ -3,13 +3,13 @@ import { ProductCard } from "../Product/ProductCard";
 import { Button, Modal } from "react-bootstrap";
 import { useState } from "react";
 import { CreateProduct } from "../Product/CRUD/CreateProduct";
-import { useNavigate } from "react-router-dom";
 import { useProductsQuery } from "../../hooks/queries/useProductsQuery";
-import { ButtonBack } from "../ButtonBack/ButtonBack";
+import { ButtonBack } from "../../components/ButtonBack/ButtonBack";
 import { useProductsSelector } from "../../hooks/selectors/useProductsSelector";
+import { SearchInput } from "../SearchInput/SearchInput";
+import { useFilteredProductsSelector } from "../../hooks/selectors/useFilteredProductsSelector";
 
 export const Products = () => {
-  let navigate = useNavigate();
   const [show, setShow] = useState(false);
 
   // const { isLoading, isError, products } = useProducts();
@@ -17,6 +17,8 @@ export const Products = () => {
 
   // const productsRedux = useProductsSelector();
   // console.log(productsRedux);
+
+  const filteredProducts = useFilteredProductsSelector();
 
   if (isLoading) {
     return <div style={{ color: "red" }}>Loading...</div>;
@@ -28,6 +30,18 @@ export const Products = () => {
 
   return (
     <div>
+      <h2
+        className="d-flex align-items-start justify-content-center"
+        style={{
+          margin: "20px 20px 10px 20px",
+          fontSize: "22px",
+          fontWeight: "400",
+          lineHeight: "36px",
+          color: "#fff",
+        }}
+      >
+        Add a product,edit,delete or search by name
+      </h2>
       <div>
         <Modal show={show} onHide={() => setShow(false)}>
           <Modal.Header closeButton style={{}}>
@@ -44,25 +58,31 @@ export const Products = () => {
 
         <ButtonBack />
 
-        <div>
-          <Button
-            variant="secondary"
-            onClick={() => setShow(true)}
-            style={{
-              backgroundColor: "#3f6d83",
-              margin: " 0  0 0 20px",
-            }}
-          >
-            Create Product
-          </Button>
+        <div
+          className="d-flex align-items-start"
+          style={{ margin: "20px 0 0 0" }}
+        >
+          <SearchInput />
+          <span>
+            <Button
+              variant="secondary"
+              onClick={() => setShow(true)}
+              style={{
+                backgroundColor: "#3f6d83",
+                margin: " 0 0 0  40px",
+              }}
+            >
+              Create Product
+            </Button>
+          </span>
         </div>
       </div>
 
       <div
         className="d-flex justify-content-around flex-wrap"
-        style={{ margin: " 30px " }}
+        style={{ margin: "30px" }}
       >
-        {products.map((product) => (
+        {filteredProducts.map((product) => (
           <div>
             <ProductCard key={product._uuid} product={product} />
           </div>

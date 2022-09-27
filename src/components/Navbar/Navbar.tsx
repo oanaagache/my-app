@@ -1,13 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { GiMountaintop } from "react-icons/gi";
+import { BsFillShieldLockFill } from "react-icons/bs";
 import { Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
-import { Counter } from "../Counter";
 
 export function Navbar() {
   return (
     <NavbarBs>
       <Container className="d-flex align-items-start justify-content-center">
-        <Counter />
         <NavbarBs.Brand
           style={{
             fontSize: "32px",
@@ -31,7 +30,7 @@ export function Navbar() {
           className="d-flex align-items-start justify-content-center"
           style={{
             fontSize: "20px",
-            gap: "180px",
+            gap: "150px",
           }}
         >
           <Nav.Link as={NavLink} to="/">
@@ -47,9 +46,15 @@ export function Navbar() {
           <Nav.Link to="/contact" as={NavLink}>
             Contact
           </Nav.Link>
-          <Nav.Link to="/products" as={NavLink}>
-            Products
-          </Nav.Link>
+
+          <div className="d-flex">
+            <p style={{ margin: "5px 0 0 0" }}>
+              <BsFillShieldLockFill />
+            </p>
+            <Nav.Link to="/products" as={NavLink}>
+              Products
+            </Nav.Link>
+          </div>
         </Nav>
       </Container>
     </NavbarBs>

@@ -1,6 +1,6 @@
 import { BiChevronsDown } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
-import "../index.css";
+import "../../index.css";
 
 export const Home = () => {
   let navigate = useNavigate();
