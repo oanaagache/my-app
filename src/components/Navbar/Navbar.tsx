@@ -2,10 +2,11 @@ import { NavLink } from "react-router-dom";
 import { GiMountaintop } from "react-icons/gi";
 import { BsFillShieldLockFill } from "react-icons/bs";
 import { Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
+import "../../index.css";
 
 export function Navbar() {
   return (
-    <NavbarBs>
+    <NavbarBs className="nav">
       <Container className="d-flex align-items-start justify-content-center">
         <NavbarBs.Brand
           style={{
@@ -16,9 +17,8 @@ export function Navbar() {
             fontFamily: "Garamond",
             color: "#ffff",
             fontWeight: "bold",
+            maxWidth: "100%",
           }}
-          to="/"
-          as={NavLink}
         >
           <div>
             <GiMountaintop />
@@ -31,29 +31,56 @@ export function Navbar() {
           style={{
             fontSize: "20px",
             gap: "150px",
+            margin: "5px 0 0 0",
           }}
         >
-          <Nav.Link as={NavLink} to="/">
+          <NavLink
+            to="/"
+            style={({ isActive }) => ({
+              color: isActive ? "#B22222" : "#000080",
+            })}
+            end
+          >
             Home{" "}
-          </Nav.Link>
-          <Nav.Link to="/about" as={NavLink}>
+          </NavLink>
+          <NavLink
+            to="/about"
+            style={({ isActive }) => ({
+              color: isActive ? "#B22222" : "#000080",
+            })}
+          >
             About
-          </Nav.Link>
-          <Nav.Link to="/categories" as={NavLink}>
+          </NavLink>
+          <NavLink
+            to="/categories"
+            style={({ isActive }) => ({
+              color: isActive ? "#B22222" : "#000080",
+            })}
+          >
             Categories
-          </Nav.Link>
+          </NavLink>
 
-          <Nav.Link to="/contact" as={NavLink}>
+          {/* <NavLink
+            to="/contact"
+            style={({ isActive }) => ({
+              color: isActive ? "#B22222" : "#000080",
+            })}
+          >
             Contact
-          </Nav.Link>
+          </NavLink> */}
 
           <div className="d-flex">
-            <p style={{ margin: "5px 0 0 0" }}>
+            <p>
               <BsFillShieldLockFill />
             </p>
-            <Nav.Link to="/products" as={NavLink}>
+            <NavLink
+              to="/products"
+              style={({ isActive }) => ({
+                color: isActive ? "#B22222" : "#000080",
+              })}
+            >
               Products
-            </Nav.Link>
+            </NavLink>
           </div>
         </Nav>
       </Container>

@@ -58,6 +58,8 @@ body {
   padding: 70px 15px 15px 15px;
 }
 
-.active {
-  color: snow;
+@media screen and (min-width: 1600px) {
+  .nav {
+    width: 100%;
+  }
 }

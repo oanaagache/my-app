@@ -19,6 +19,8 @@ export const Products = () => {
   // console.log(productsRedux);
 
   const filteredProducts = useFilteredProductsSelector();
+  console.log("FilteredProducts in Products:");
+  console.log(filteredProducts);
 
   if (isLoading) {
     return <div style={{ color: "red" }}>Loading...</div>;
@@ -69,7 +71,7 @@ export const Products = () => {
               onClick={() => setShow(true)}
               style={{
                 backgroundColor: "#3f6d83",
-                margin: " 0 0 0  40px",
+                margin: " 0 0 0 40px",
               }}
             >
               Create Product

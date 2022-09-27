@@ -9,7 +9,7 @@ import { useSearchSelector } from "../../hooks/selectors/useSearchSelector";
 export const SearchInput = () => {
   const search = useSearchSelector();
   const filteredProducts = useFilteredProductsSelector();
-  console.log("filteredProducts");
+  console.log("filteredProducts in SearchInput:");
   console.log(filteredProducts);
   const dispatch = useDispatch();
   return (

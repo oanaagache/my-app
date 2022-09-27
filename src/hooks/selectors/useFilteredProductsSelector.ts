@@ -5,7 +5,7 @@ import { IProduct } from "../../types/IProduct";
 export const useFilteredProductsSelector = () => {
   const products = useSelector((state: RootState) =>
     state.products.products.filter((product: IProduct) =>
-      product.name.includes(state.products.search)
+      product.name.toLowerCase().includes(state.products.search)
     )
   );
   return products as IProduct[];
