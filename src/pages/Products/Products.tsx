@@ -5,7 +5,7 @@ import { useState } from "react";
 import { CreateProduct } from "../Product/CRUD/CreateProduct";
 import { useProductsQuery } from "../../hooks/queries/useProductsQuery";
 import { ButtonBack } from "../../components/ButtonBack/ButtonBack";
-import { useProductsSelector } from "../../hooks/selectors/useProductsSelector";
+//import { useProductsSelector } from "../../hooks/selectors/useProductsSelector";
 import { SearchInput } from "../SearchInput/SearchInput";
 import { useFilteredProductsSelector } from "../../hooks/selectors/useFilteredProductsSelector";
 
@@ -19,8 +19,6 @@ export const Products = () => {
   // console.log(productsRedux);
 
   const filteredProducts = useFilteredProductsSelector();
-  console.log("FilteredProducts in Products:");
-  console.log(filteredProducts);
 
   if (isLoading) {
     return <div style={{ color: "red" }}>Loading...</div>;
@@ -42,7 +40,7 @@ export const Products = () => {
           color: "#fff",
         }}
       >
-        Add a product,edit,delete or search by name
+        Add a product, edit, delete or search by name
       </h2>
       <div>
         <Modal show={show} onHide={() => setShow(false)}>

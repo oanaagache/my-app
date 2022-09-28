@@ -32,6 +32,7 @@ export function ProductCard({ product }: ProductCardProps) {
           {product.category}
         </div>
       </Card.Body>
+
       <Button onClick={handleRedirect} style={{ backgroundColor: "#3f6d83" }}>
         Details{" "}
       </Button>

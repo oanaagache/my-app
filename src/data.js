@@ -1,4 +1,4 @@
-export const products = [
+export const store = [
   {
     id: 7,
     name: "Ortovox Backpack",

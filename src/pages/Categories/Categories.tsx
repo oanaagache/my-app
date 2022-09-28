@@ -1,13 +1,14 @@
-import { Card } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import { useParams, useSearchParams } from "react-router-dom";
 import { useProducts } from "../../hooks/custom/useProducts";
 import Form from "react-bootstrap/Form";
 import "./Categories.css";
 import "../../index.css";
 import { ButtonBack } from "../../components/ButtonBack/ButtonBack";
-//import { useSearchSelector } from "../../hooks/selectors/useSearchSelector";
-import { useState } from "react";
+import { useSearchSelector } from "../../hooks/selectors/useSearchSelector";
 import { useDispatch } from "react-redux";
+import { useProductsSelector } from "../../hooks/selectors/useProductsSelector";
+import { addToCart } from "../../store/cartSlice";
 
 export const Categories = () => {
   let [searchParams, setSearchParams] = useSearchParams();
@@ -15,11 +16,8 @@ export const Categories = () => {
   const cat = searchParams.get("category");
   //console.log(cat);
 
-  // let [search, setSearch] = useState("");
-  // const { category } = useParams();
-  // const dispatch = useDispatch();
-  // const products = useSearchSelector(category);
-  // console.log(products);
+  const dispatch = useDispatch();
+  //const products = useProductsSelector();
 
   return (
     <div>
@@ -77,6 +75,21 @@ export const Categories = () => {
                       <div style={{ paddingRight: "80px", fontWeight: "bold" }}>
                         {product.category}
                       </div>
+                      <Button
+                        className="w-100"
+                        style={{
+                          position: "relative",
+                          backgroundColor: "#b9dae9",
+                          border: "#5d8799",
+                          borderRadius: "10px",
+                          marginTop: "20px",
+                        }}
+                        onClick={() => {
+                          dispatch(addToCart(product));
+                        }}
+                      >
+                        Add To Cart
+                      </Button>
                     </Card.Body>
                   </Card>
                 </div>

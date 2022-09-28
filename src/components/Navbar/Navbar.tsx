@@ -1,10 +1,11 @@
 import { NavLink } from "react-router-dom";
 import { GiMountaintop } from "react-icons/gi";
 import { BsFillShieldLockFill } from "react-icons/bs";
-import { Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import "../../index.css";
+import { Button, Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
+import { BiCart } from "react-icons/bi";
 
-export function Navbar() {
+export const Navbar = () => {
   return (
     <NavbarBs className="nav">
       <Container className="d-flex align-items-start justify-content-center">
@@ -60,14 +61,14 @@ export function Navbar() {
             Categories
           </NavLink>
 
-          {/* <NavLink
+          <NavLink
             to="/contact"
             style={({ isActive }) => ({
               color: isActive ? "#B22222" : "#000080",
             })}
           >
             Contact
-          </NavLink> */}
+          </NavLink>
 
           <div className="d-flex">
             <p>
@@ -83,7 +84,38 @@ export function Navbar() {
             </NavLink>
           </div>
         </Nav>
+        <Button
+          style={{
+            width: "50px",
+            height: "50px",
+            position: "absolute",
+            top: "30px",
+            right: "50px",
+            backgroundColor: "#b9dae9",
+            border: "#5d8799",
+            borderRadius: "10px",
+          }}
+        >
+          <BiCart />
+
+          <div
+            className="d-flex justify-content-center align-items-center"
+            style={{
+              width: "20px",
+              height: "20px",
+              position: "absolute",
+              bottom: "0",
+              right: "0",
+              transform: "translate(30%, 30%)",
+              borderRadius: "5px",
+              backgroundColor: "red",
+              fontSize: "15px",
+            }}
+          >
+            qty
+          </div>
+        </Button>
       </Container>
     </NavbarBs>
   );
-}
+};

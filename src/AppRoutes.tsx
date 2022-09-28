@@ -5,6 +5,7 @@ import { Products } from "./pages/Products/Products";
 import { Contact } from "./pages/Contact/Contact";
 import { Product } from "./pages/Product/Product";
 import { Categories } from "./pages/Categories/Categories";
+import { Cart } from "./components/Cart/Cart";
 import "./index.css";
 
 export default function AppRoutes() {
@@ -17,6 +18,7 @@ export default function AppRoutes() {
       <Route path="/contact" element={<Contact />} />
       <Route path="/products/:uuid" element={<Product />} />
       <Route path="/categories/:category" element={<Categories />} />
+      <Route path="/cart" element={<Cart />} />
     </Routes>
   );
 }
