@@ -54,9 +54,10 @@ export const Categories = () => {
               }
               return cat === product.category;
             })
+
             .map((product) => {
               return (
-                <div>
+                <div key={product._uuid}>
                   <Card className="card">
                     <Card.Img
                       className="cardImg"
