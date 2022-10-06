@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { useProductsSelector } from "../../hooks/selectors/useProductsSelector";
 //import { addToCart } from "../../store/cartSlice";
 import { useState } from "react";
+import { Cart } from "../../components/Cart/Cart";
 //import { Cart } from "../../components/Cart/Cart";
 
 export const Categories = () => {
@@ -90,7 +91,7 @@ export const Categories = () => {
                               Add to Cart
                             </Modal.Title>
                           </Modal.Header>
-                          {/* <Cart /> */}
+                          <Cart />
                         </Modal>
 
                         <div

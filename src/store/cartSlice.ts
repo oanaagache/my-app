@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IProduct } from "../types/IProduct";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -6,8 +7,36 @@ const cartSlice = createSlice({
     cart: [],
     totalAmount: 0,
     totalCount: 0,
+    quantity: 0,
   },
   reducers: {
+    addToCart: (state, action) => {
+      //const { id } = payload;
+      const isItemExist = state.cart.find(
+        (item: { quantity: number; id: string }) =>
+          item.id === action.payload.id
+      );
+      if (!isItemExist) {
+        return [...state.cart, { ...action.payload, quantity: 1 }];
+        //state.cart.push();
+      } else {
+        state.cart.map((item: { quantity: number; id: string }) => {
+          if (item.id === action.payload.id) {
+            return { ...item, quantity: item.quantity + 1 };
+          } else {
+            return item;
+          }
+        });
+      }
+      state.quantity++;
+      state.totalAmount += action.payload.price;
+    },
+
+    removeFromCart: (state, { payload }) => {
+      const { id } = payload;
+      state.cart = state.cart.filter((item: { id: string }) => item.id !== id);
+    },
+
     getCartTotal: (state) => {
       let { totalAmount, totalCount } = state.cart.reduce(
         (
@@ -30,32 +59,32 @@ const cartSlice = createSlice({
       state.totalCount = totalCount;
     },
 
-    remove: (state, { payload }) => {
-      const { id } = payload;
-      state.cart = state.cart.filter((item: { id: string }) => item.id !== id);
-    },
-
     increment: (state, { payload }) => {
-      const { id } = payload;
-      state.cart.map((item: { amount: number; id: string }) => {
-        if (item.id === id) {
-          return { ...item, amount: item.amount + 1 };
+      //const { id } = payload;
+      state.cart.map((item: { quantity: number; id: string }) => {
+        if (item.id === payload.id) {
+          return { ...item, quantity: item.quantity + 1 };
+        } else {
+          return item;
         }
-        return item;
       });
+      state.quantity++;
+      state.totalAmount += payload.price;
     },
 
     decrement: (state, { payload }) => {
-      const { id } = payload;
       state.cart
-        .map((item: { amount: number; id: string }) => {
-          if (item.id === id) {
-            return { ...item, amount: item.amount - 1 };
+        .map((item: { quantity: number; id: string }) => {
+          if (item.id === payload.id) {
+            return { ...item, quantity: item.quantity - 1 };
           }
           return item;
         })
-        .filter((item) => item.amount !== 0);
+        .filter((item) => item.quantity !== 0);
+      state.quantity--;
+      state.totalAmount -= payload.price;
     },
+
     clearCart: (state) => {
       state.cart = [];
     },
@@ -68,7 +97,7 @@ const cartSlice = createSlice({
 export default cartSlice.reducer;
 export const {
   getCartTotal,
-  remove,
+  removeFromCart,
   increment,
   decrement,
   clearCart,

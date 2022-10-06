@@ -13,7 +13,9 @@ export const Cart = () => {
 
   const cart = useCartSelector();
   const totalAmount = useSelector((state: RootState) => state.cart.totalAmount);
-
+  // const { cart, totalAmount, quantity } = useSelector(
+  //   (state: RootState) => state.cart
+  // );
   if (cart.length === 0) {
     return (
       <>

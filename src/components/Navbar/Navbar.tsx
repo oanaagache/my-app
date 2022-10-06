@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 //import { useCartTotalSelector } from "../../hooks/selectors/useCartTotalSelector";
 import { useEffect, useState } from "react";
-import { toggle } from "../../store/modalSlice";
 //import { Cart } from "../Cart/Cart";
 
 export const Navbar = () => {
