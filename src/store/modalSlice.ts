@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  showCart: true,
+  setShow: true,
 };
 
 const modalSlice = createSlice({
@@ -9,7 +9,7 @@ const modalSlice = createSlice({
   initialState,
   reducers: {
     toggle(state) {
-      state.showCart = !state.showCart;
+      state.setShow = !state.setShow;
     },
   },
 });

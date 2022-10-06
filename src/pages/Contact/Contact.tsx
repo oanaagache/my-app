@@ -7,21 +7,23 @@ export const Contact = () => {
   let navigate = useNavigate();
 
   return (
-    <div className="contact">
-      <h2 className="h2-contact">
-        You can find us at our store,online by email or you can call us anytime
-        you need an answer.
-      </h2>
+    <main style={{ minHeight: "calc(100vh - 180px)" }}>
+      <div className="contact">
+        <h2 className="h2-contact">
+          You can find us at our store,online by email or you can call us
+          anytime you need an answer.
+        </h2>
 
-      <h2 className="h2-contact">Please use the form below.</h2>
-      <a
-        className="buttonChevron"
-        onClick={() => {
-          navigate("/form");
-        }}
-      >
-        <BiChevronsDown />
-      </a>
-    </div>
+        <h2 className="h2-contact">Please use the form below.</h2>
+        <a
+          className="buttonChevron"
+          onClick={() => {
+            navigate("/form");
+          }}
+        >
+          <BiChevronsDown />
+        </a>
+      </div>
+    </main>
   );
 };

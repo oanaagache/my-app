@@ -4,118 +4,135 @@ import { BsFillShieldLockFill } from "react-icons/bs";
 import "../../index.css";
 import { Button, Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { BiCart } from "react-icons/bi";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+//import { useCartTotalSelector } from "../../hooks/selectors/useCartTotalSelector";
+import { useEffect, useState } from "react";
+import { toggle } from "../../store/modalSlice";
+//import { Cart } from "../Cart/Cart";
 
 export const Navbar = () => {
+  //const total = useSelector(useCartTotalSelector);
+
   return (
-    <NavbarBs className="nav">
-      <Container className="d-flex align-items-start justify-content-center">
-        <NavbarBs.Brand
+    <>
+      <NavbarBs>
+        <Container
           style={{
-            fontSize: "32px",
-            position: "absolute",
-            top: "10px",
-            left: "20px",
-            fontFamily: "Garamond",
-            color: "#ffff",
-            fontWeight: "bold",
             maxWidth: "100%",
+            gap: "30px",
+            width: "100% !important",
+            flexDirection: "row",
+            display: "flex",
+            justifyContent: "space-around",
+            padding: "0 40px",
           }}
         >
-          <div>
-            <GiMountaintop />
-            <span className="name">Mountain Shop</span>
-          </div>
-        </NavbarBs.Brand>
+          <NavbarBs.Brand
+            style={{
+              fontSize: "32px",
+              fontFamily: "Garamond",
+              color: "#ffff",
+              fontWeight: "bold",
+              maxWidth: "100%",
+            }}
+          >
+            <div>
+              <GiMountaintop />
+              <span className="name">Mountain Shop</span>
+            </div>
+          </NavbarBs.Brand>
 
-        <Nav
-          className="d-flex align-items-start justify-content-center"
-          style={{
-            fontSize: "20px",
-            gap: "150px",
-            margin: "5px 0 0 0",
-          }}
-        >
-          <NavLink
-            to="/"
-            style={({ isActive }) => ({
-              color: isActive ? "#B22222" : "#000080",
-            })}
-            end
+          <Nav
+            style={{
+              fontSize: "20px",
+              margin: "5px 0 0 0",
+              justifyContent: "space-between",
+              flexGrow: 3,
+              width: "80%",
+              // flexDirection: "row",
+              // display: "flex !important",
+              // alignItems: "center",
+            }}
           >
-            Home{" "}
-          </NavLink>
-          <NavLink
-            to="/about"
-            style={({ isActive }) => ({
-              color: isActive ? "#B22222" : "#000080",
-            })}
-          >
-            About
-          </NavLink>
-          <NavLink
-            to="/categories"
-            style={({ isActive }) => ({
-              color: isActive ? "#B22222" : "#000080",
-            })}
-          >
-            Categories
-          </NavLink>
-
-          <NavLink
-            to="/contact"
-            style={({ isActive }) => ({
-              color: isActive ? "#B22222" : "#000080",
-            })}
-          >
-            Contact
-          </NavLink>
-
-          <div className="d-flex">
-            <p>
-              <BsFillShieldLockFill />
-            </p>
             <NavLink
-              to="/products"
+              to="/"
+              style={({ isActive }) => ({
+                color: isActive ? "#B22222" : "#000080",
+              })}
+              end
+            >
+              Home{" "}
+            </NavLink>
+            <NavLink
+              to="/about"
               style={({ isActive }) => ({
                 color: isActive ? "#B22222" : "#000080",
               })}
             >
-              Products
+              About
             </NavLink>
-          </div>
-        </Nav>
-        <Button
-          style={{
-            width: "50px",
-            height: "50px",
-            position: "absolute",
-            top: "30px",
-            right: "50px",
-            backgroundColor: "#b9dae9",
-            border: "#5d8799",
-            borderRadius: "10px",
-          }}
-        >
-          <BiCart />
+            <NavLink
+              to="/categories"
+              style={({ isActive }) => ({
+                color: isActive ? "#B22222" : "#000080",
+              })}
+            >
+              Categories
+            </NavLink>
 
-          <div
-            className="d-flex justify-content-center align-items-center"
+            <NavLink
+              to="/contact"
+              style={({ isActive }) => ({
+                color: isActive ? "#B22222" : "#000080",
+              })}
+            >
+              Contact
+            </NavLink>
+
+            <div className="d-flex">
+              <p style={{ marginBottom: "0px" }}>
+                <BsFillShieldLockFill />
+              </p>
+              <NavLink
+                to="/products"
+                style={({ isActive }) => ({
+                  color: isActive ? "#B22222" : "#000080",
+                })}
+              >
+                Products
+              </NavLink>
+            </div>
+          </Nav>
+          <Button
             style={{
-              width: "20px",
-              height: "20px",
-              position: "absolute",
-              bottom: "0",
-              right: "0",
-              transform: "translate(30%, 30%)",
-              borderRadius: "5px",
-              backgroundColor: "red",
-              fontSize: "15px",
+              width: "40px",
+              height: "40px",
+              backgroundColor: "#b9dae9",
+              border: "#5d8799",
+              borderRadius: "10px",
             }}
           >
-            qty
-          </div>
-        </Button>
-      </Container>
-    </NavbarBs>
+            <BiCart />
+
+            <div
+              style={{
+                width: "20px",
+                height: "20px",
+                transform: "translate(30%, 30%)",
+                borderRadius: "5px",
+                backgroundColor: "red",
+                fontSize: "15px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              {/* {total !== 0 && <span>{total}</span>} */}
+            </div>
+          </Button>
+        </Container>
+      </NavbarBs>
+    </>
   );
 };

@@ -1,53 +1,57 @@
-import { useDispatch, useSelector } from "react-redux";
 import { useCartSelector } from "../../hooks/selectors/useCartSelector";
-import { useCartTotalPriceSelector } from "../../hooks/selectors/useCartTotalPriceSelector";
-import { useState } from "react";
-import { Button, Modal } from "react-bootstrap";
-import { toggle } from "../../store/modalSlice";
-import { useModalSelector } from "../../hooks/selectors/useModalSelector";
-import { addToCart, increment, decrement } from "../../store/cartSlice";
+//import { useCartTotalPriceSelector } from "../../hooks/selectors/useCartTotalPriceSelector";
+import { Button } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+//import { addToCart } from "../../store/cartSlice";
+
+import { CartItem } from "./CartItem";
+import { RootState } from "../../store/store";
 
 export const Cart = () => {
-  const cart = useCartSelector();
-  const modal = useModalSelector();
+  //const totalPrice = useCartTotalPriceSelector();
   const dispatch = useDispatch();
-  const totalPrice = useSelector(useCartTotalPriceSelector);
-  const [show, setShow] = useState(false);
 
+  const cart = useCartSelector();
+  const totalAmount = useSelector((state: RootState) => state.cart.totalAmount);
+
+  if (cart.length === 0) {
+    return (
+      <>
+        <h3 className="fs-bold" style={{ marginTop: "20px" }}>
+          Your Shopping is Empty
+        </h3>
+        {/* <Button onClick={() => dispatch(addToCart())}>Add to Cart</Button> */}
+      </>
+    );
+  }
   return (
-    <>
-      <div>
-        <Modal show={show} onHide={() => setShow(false)}>
-          <Modal.Header closeButton style={{}}>
-            <Modal.Title
-              style={{
-                margin: "0 15px",
-              }}
-            >
-              Create A New Product
-            </Modal.Title>
-          </Modal.Header>
-          <div>
-            {cart.map((item) => (
-              <div key={item.id}>
-                <img src="https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80" />
-                <div>
-                  <div>{item.name}</div>
-                  <div>
-                    <span> {item.quantity * item.price}$ </span>
-                  </div>
-                  <div>
-                    <Button>-</Button>
-                    <div>{item.quantity}</div>
-                    <Button>+</Button>
-                  </div>
-                </div>
-              </div>
-            ))}
-            {totalPrice > 0 && <div>{totalPrice}</div>}
-          </div>
-        </Modal>
-      </div>
-    </>
+    <div>
+      <h2>Your Shooping Cart</h2>
+      {cart.map((item) => {
+        return <CartItem key={item._uuid} {...item} />;
+      })}
+      <footer>
+        <hr />
+        <div>
+          <h4
+            style={{
+              display: "flex",
+              justifyContent: "space-evenly",
+              marginRight: "60px",
+            }}
+          >
+            Total <span>${totalAmount}</span>
+          </h4>
+        </div>
+
+        <Button
+          color="danger"
+          //   onClick={() => dispatch(clearCart())}
+          style={{ width: "140px", marginTop: "50px" }}
+        >
+          Clear Cart
+        </Button>
+      </footer>
+    </div>
   );
 };

@@ -1,4 +1,4 @@
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Modal } from "react-bootstrap";
 import { useParams, useSearchParams } from "react-router-dom";
 import { useProducts } from "../../hooks/custom/useProducts";
 import Form from "react-bootstrap/Form";
@@ -8,14 +8,16 @@ import { ButtonBack } from "../../components/ButtonBack/ButtonBack";
 import { useSearchSelector } from "../../hooks/selectors/useSearchSelector";
 import { useDispatch } from "react-redux";
 import { useProductsSelector } from "../../hooks/selectors/useProductsSelector";
-import { addToCart } from "../../store/cartSlice";
+//import { addToCart } from "../../store/cartSlice";
+import { useState } from "react";
+//import { Cart } from "../../components/Cart/Cart";
 
 export const Categories = () => {
   let [searchParams, setSearchParams] = useSearchParams();
   const { products } = useProducts();
   const cat = searchParams.get("category");
   //console.log(cat);
-
+  const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   //const products = useProductsSelector();
 
@@ -76,21 +78,48 @@ export const Categories = () => {
                       <div style={{ paddingRight: "80px", fontWeight: "bold" }}>
                         {product.category}
                       </div>
-                      <Button
-                        className="w-100"
-                        style={{
-                          position: "relative",
-                          backgroundColor: "#b9dae9",
-                          border: "#5d8799",
-                          borderRadius: "10px",
-                          marginTop: "20px",
-                        }}
-                        onClick={() => {
-                          dispatch(addToCart(product));
-                        }}
-                      >
-                        Add To Cart
-                      </Button>
+
+                      <div>
+                        <Modal show={show} onHide={() => setShow(false)}>
+                          <Modal.Header closeButton style={{}}>
+                            <Modal.Title
+                              style={{
+                                margin: "0 15px",
+                              }}
+                            >
+                              Add to Cart
+                            </Modal.Title>
+                          </Modal.Header>
+                          {/* <Cart /> */}
+                        </Modal>
+
+                        <div
+                          className="d-flex align-items-start"
+                          style={{ margin: "20px 0 0 0" }}
+                        >
+                          <span>
+                            <Button
+                              className="w-100"
+                              style={{
+                                position: "relative",
+                                backgroundColor: "#b9dae9",
+                                border: "#5d8799",
+                                borderRadius: "10px",
+                                marginTop: "20px",
+                              }}
+                              // onClick={() => {
+                              //   dispatch(addToCart(product));
+                              // }}
+                              onClick={() => {
+                                setShow(true);
+                                // dispatch(addToCart(product));
+                              }}
+                            >
+                              Add To Cart
+                            </Button>
+                          </span>
+                        </div>
+                      </div>
                     </Card.Body>
                   </Card>
                 </div>
