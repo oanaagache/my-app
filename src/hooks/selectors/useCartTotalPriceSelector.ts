@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
- import { RootState } from "../../store/store";
+import { RootState } from "../../store/store";
 
- export const useCartTotalPriceSelector = () => {}
+export const useCartTotalPriceSelector = () => {};
 // export const useCartTotalPriceSelector = () => {
 //   const totalPrice = useSelector((state: RootState) =>
 //     state.cart.cart.reduce((cartTotal) => (cartTotal += price * amount), 0)

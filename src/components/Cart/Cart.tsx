@@ -1,59 +1,48 @@
 import { useCartSelector } from "../../hooks/selectors/useCartSelector";
-//import { useCartTotalPriceSelector } from "../../hooks/selectors/useCartTotalPriceSelector";
-import { Button } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-//import { addToCart } from "../../store/cartSlice";
-
 import { CartItem } from "./CartItem";
-import { RootState } from "../../store/store";
+import { Total } from "./Total";
 
 export const Cart = () => {
-  //const totalPrice = useCartTotalPriceSelector();
-  const dispatch = useDispatch();
-
   const cart = useCartSelector();
-  const totalAmount = useSelector((state: RootState) => state.cart.totalAmount);
-  // const { cart, totalAmount, quantity } = useSelector(
-  //   (state: RootState) => state.cart
-  // );
-  if (cart.length === 0) {
-    return (
-      <>
-        <h3 className="fs-bold" style={{ marginTop: "20px" }}>
-          Your Shopping is Empty
-        </h3>
-        {/* <Button onClick={() => dispatch(addToCart())}>Add to Cart</Button> */}
-      </>
-    );
-  }
+
+  // if (cart.length === 0) {
+  //   return (
+  //     <>
+  //       <h3 className="fs-bold" style={{ marginTop: "20px" }}>
+  //         Your Shopping is Empty
+  //       </h3>
+  //     </>
+  //   );
+  // }
   return (
     <div>
-      <h2>Your Shooping Cart</h2>
-      {cart.map((item) => {
-        return <CartItem key={item._uuid} {...item} />;
+      <h3
+        style={{
+          padding: "10px",
+          margin: "20px",
+          fontSize: "25px",
+          fontWeight: "400",
+          lineHeight: "26px",
+          color: "#ffffff",
+        }}
+      >
+        Your Shooping Cart:
+      </h3>
+      {cart.map((cartItem) => {
+        return (
+          // <CartItem
+          //   key={item.id}
+          //   id={item.id}
+          //   name={item.name}
+          //   price={item.price}
+          //   quantity={item.quantity}
+          //   category={item.category}
+          // />
+          // <CartItem key={item._uuid} {...item} />
+          <CartItem key={cartItem._uuid} cartItem={cartItem} />
+        );
       })}
-      <footer>
-        <hr />
-        <div>
-          <h4
-            style={{
-              display: "flex",
-              justifyContent: "space-evenly",
-              marginRight: "60px",
-            }}
-          >
-            Total <span>${totalAmount}</span>
-          </h4>
-        </div>
-
-        <Button
-          color="danger"
-          //   onClick={() => dispatch(clearCart())}
-          style={{ width: "140px", marginTop: "50px" }}
-        >
-          Clear Cart
-        </Button>
-      </footer>
+      <Total />
     </div>
   );
 };

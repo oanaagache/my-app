@@ -4,15 +4,13 @@ import { BsFillShieldLockFill } from "react-icons/bs";
 import "../../index.css";
 import { Button, Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { BiCart } from "react-icons/bi";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
 //import { useCartTotalSelector } from "../../hooks/selectors/useCartTotalSelector";
-import { useEffect, useState } from "react";
-//import { Cart } from "../Cart/Cart";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
-  //const total = useSelector(useCartTotalSelector);
-
+  //const totalQuantity = useSelector(useCartTotalSelector);
+  //const { totalQuantity } = props;
+  let navigate = useNavigate();
   return (
     <>
       <NavbarBs>
@@ -49,9 +47,6 @@ export const Navbar = () => {
               justifyContent: "space-between",
               flexGrow: 3,
               width: "80%",
-              // flexDirection: "row",
-              // display: "flex !important",
-              // alignItems: "center",
             }}
           >
             <NavLink
@@ -89,6 +84,15 @@ export const Navbar = () => {
               Contact
             </NavLink>
 
+            {/* <NavLink
+              to="/shoppingcart"
+              style={({ isActive }) => ({
+                color: isActive ? "#B22222" : "#000080",
+              })}
+            >
+              ShoppingCart
+            </NavLink> */}
+
             <div className="d-flex">
               <p style={{ marginBottom: "0px" }}>
                 <BsFillShieldLockFill />
@@ -104,6 +108,9 @@ export const Navbar = () => {
             </div>
           </Nav>
           <Button
+            onClick={() => {
+              navigate("/cart");
+            }}
             style={{
               width: "40px",
               height: "40px",
@@ -127,7 +134,7 @@ export const Navbar = () => {
                 alignItems: "center",
               }}
             >
-              {/* {total !== 0 && <span>{total}</span>} */}
+              {/* {totalQuantity !== 0 && <span>{totalQuantity}</span>} */}
             </div>
           </Button>
         </Container>

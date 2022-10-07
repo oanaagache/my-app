@@ -1,17 +1,16 @@
 import { Button, Card, Modal } from "react-bootstrap";
 import { useParams, useSearchParams } from "react-router-dom";
+import { useSearchSelector } from "../../hooks/selectors/useSearchSelector";
+import { useProductsSelector } from "../../hooks/selectors/useProductsSelector";
 import { useProducts } from "../../hooks/custom/useProducts";
 import Form from "react-bootstrap/Form";
 import "./Categories.css";
 import "../../index.css";
 import { ButtonBack } from "../../components/ButtonBack/ButtonBack";
-import { useSearchSelector } from "../../hooks/selectors/useSearchSelector";
 import { useDispatch } from "react-redux";
-import { useProductsSelector } from "../../hooks/selectors/useProductsSelector";
-//import { addToCart } from "../../store/cartSlice";
+import { addToCart } from "../../store/cartSlice";
 import { useState } from "react";
-import { Cart } from "../../components/Cart/Cart";
-//import { Cart } from "../../components/Cart/Cart";
+import { useCartSelector } from "../../hooks/selectors/useCartSelector";
 
 export const Categories = () => {
   let [searchParams, setSearchParams] = useSearchParams();
@@ -21,6 +20,7 @@ export const Categories = () => {
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   //const products = useProductsSelector();
+  const cart = useCartSelector();
 
   return (
     <div>
@@ -81,18 +81,18 @@ export const Categories = () => {
                       </div>
 
                       <div>
-                        <Modal show={show} onHide={() => setShow(false)}>
+                        {/* <Modal show={show} onHide={() => setShow(false)}>
                           <Modal.Header closeButton style={{}}>
                             <Modal.Title
                               style={{
                                 margin: "0 15px",
                               }}
                             >
-                              Add to Cart
+                              Added to Cart
                             </Modal.Title>
                           </Modal.Header>
                           <Cart />
-                        </Modal>
+                        </Modal> */}
 
                         <div
                           className="d-flex align-items-start"
@@ -102,19 +102,18 @@ export const Categories = () => {
                             <Button
                               className="w-100"
                               style={{
-                                position: "relative",
                                 backgroundColor: "#b9dae9",
                                 border: "#5d8799",
                                 borderRadius: "10px",
                                 marginTop: "20px",
                               }}
+                              onClick={() => {
+                                dispatch(addToCart(product));
+                              }}
                               // onClick={() => {
+                              //   setShow(true);
                               //   dispatch(addToCart(product));
                               // }}
-                              onClick={() => {
-                                setShow(true);
-                                // dispatch(addToCart(product));
-                              }}
                             >
                               Add To Cart
                             </Button>
