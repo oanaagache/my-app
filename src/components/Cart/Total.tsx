@@ -14,10 +14,18 @@ export const Total = () => {
   };
 
   return (
-    <div style={{ padding: "50px 10px" }}>
+    <div
+      style={{
+        padding: "10px",
+        margin: "20px",
+        fontSize: "25px",
+        fontWeight: "200",
+        lineHeight: "20px",
+      }}
+    >
       <h4>Order Summary:</h4>
       <div style={{ padding: "10px" }}>
-        <p className="total__p">
+        <p>
           Total ({getTotal().totalQuantity} items) :{" "}
           <strong>${getTotal().totalPrice}</strong>
         </p>

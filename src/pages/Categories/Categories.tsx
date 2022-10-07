@@ -11,16 +11,17 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../store/cartSlice";
 import { useState } from "react";
 import { useCartSelector } from "../../hooks/selectors/useCartSelector";
+import { Cart } from "../../components/Cart/Cart";
 
 export const Categories = () => {
   let [searchParams, setSearchParams] = useSearchParams();
   const { products } = useProducts();
   const cat = searchParams.get("category");
-  //console.log(cat);
-  const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   //const products = useProductsSelector();
-  const cart = useCartSelector();
+  // const cart = useCartSelector();
+
+  const [show, setShow] = useState(false);
 
   return (
     <div>
@@ -81,7 +82,7 @@ export const Categories = () => {
                       </div>
 
                       <div>
-                        {/* <Modal show={show} onHide={() => setShow(false)}>
+                        <Modal show={show} onHide={() => setShow(false)}>
                           <Modal.Header closeButton style={{}}>
                             <Modal.Title
                               style={{
@@ -92,7 +93,7 @@ export const Categories = () => {
                             </Modal.Title>
                           </Modal.Header>
                           <Cart />
-                        </Modal> */}
+                        </Modal>
 
                         <div
                           className="d-flex align-items-start"
@@ -107,13 +108,13 @@ export const Categories = () => {
                                 borderRadius: "10px",
                                 marginTop: "20px",
                               }}
-                              onClick={() => {
-                                dispatch(addToCart(product));
-                              }}
                               // onClick={() => {
-                              //   setShow(true);
                               //   dispatch(addToCart(product));
                               // }}
+                              onClick={() => {
+                                setShow(true);
+                                dispatch(addToCart(product));
+                              }}
                             >
                               Add To Cart
                             </Button>

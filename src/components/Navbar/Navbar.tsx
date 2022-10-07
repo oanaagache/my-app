@@ -11,6 +11,7 @@ export const Navbar = () => {
   //const totalQuantity = useSelector(useCartTotalSelector);
   //const { totalQuantity } = props;
   let navigate = useNavigate();
+
   return (
     <>
       <NavbarBs>
@@ -83,15 +84,6 @@ export const Navbar = () => {
             >
               Contact
             </NavLink>
-
-            {/* <NavLink
-              to="/shoppingcart"
-              style={({ isActive }) => ({
-                color: isActive ? "#B22222" : "#000080",
-              })}
-            >
-              ShoppingCart
-            </NavLink> */}
 
             <div className="d-flex">
               <p style={{ marginBottom: "0px" }}>

@@ -8,16 +8,20 @@ import { ButtonBack } from "../../components/ButtonBack/ButtonBack";
 //import { useProductsSelector } from "../../hooks/selectors/useProductsSelector";
 import { SearchInput } from "../SearchInput/SearchInput";
 import { useFilteredProductsSelector } from "../../hooks/selectors/useFilteredProductsSelector";
+import { Navbar } from "../../components/Navbar/Navbar";
 
 export const Products = () => {
   const [show, setShow] = useState(false);
 
   // const { isLoading, isError, products } = useProducts();
+
   const { isLoading, isError, data: products } = useProductsQuery();
 
+  //get products with Redux:
   // const productsRedux = useProductsSelector();
   // console.log(productsRedux);
 
+  //get filteredProducts with Redux
   const filteredProducts = useFilteredProductsSelector();
 
   if (isLoading) {

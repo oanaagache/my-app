@@ -32,7 +32,6 @@ export const CartItem = ({ cartItem }: CartItem) => {
             fontSize: "25px",
             fontWeight: "300",
             lineHeight: "20px",
-            color: "#ffffff",
           }}
         >
           {cartItem.name}
@@ -44,13 +43,11 @@ export const CartItem = ({ cartItem }: CartItem) => {
             fontSize: "20px",
             fontWeight: "300",
             lineHeight: "20px",
-            color: "#ffffff",
           }}
         >
           <small>$</small>
           <strong>{cartItem.price}</strong>
         </span>
-        {/* <Counter /> */}
 
         <span style={{ padding: "10px" }}>
           <Button
