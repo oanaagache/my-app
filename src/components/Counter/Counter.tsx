@@ -17,16 +17,11 @@ export const Counter = () => {
 
   return (
     <>
-      <div
-        className="d-flex align-items-center flex-column"
-        style={{
-          gap: "15px",
-        }}
-      >
+      <div className="d-flex align-items-center ">
         <div
-          className="d-flex align-items-center justify-content-center"
+          className="d-flex align-items-center "
           style={{
-            gap: "15px",
+            gap: "5px",
           }}
         >
           <Button

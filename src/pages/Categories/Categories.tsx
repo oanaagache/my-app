@@ -12,6 +12,7 @@ import { addToCart } from "../../store/cartSlice";
 import { useState } from "react";
 import { useCartSelector } from "../../hooks/selectors/useCartSelector";
 import { Cart } from "../../components/Cart/Cart";
+import { CartModal } from "../../components/Cart/CartModal";
 
 export const Categories = () => {
   let [searchParams, setSearchParams] = useSearchParams();
@@ -72,18 +73,18 @@ export const Categories = () => {
 
                     <Card.Body className="cardBody">
                       <Card.Title className="cardTitle">
-                        <span style={{ paddingRight: "80px" }}>
+                        <span style={{ paddingRight: "20px" }}>
                           {product.name}
                         </span>
                         <span>{product.price}$</span>
                       </Card.Title>
-                      <div style={{ paddingRight: "80px", fontWeight: "bold" }}>
+                      <div style={{ paddingRight: "20px", fontWeight: "bold" }}>
                         {product.category}
                       </div>
 
                       <div>
                         <Modal show={show} onHide={() => setShow(false)}>
-                          <Modal.Header closeButton style={{}}>
+                          <Modal.Header closeButton>
                             <Modal.Title
                               style={{
                                 margin: "0 15px",
@@ -92,7 +93,7 @@ export const Categories = () => {
                               Added to Cart
                             </Modal.Title>
                           </Modal.Header>
-                          <Cart />
+                          <CartModal />
                         </Modal>
 
                         <div

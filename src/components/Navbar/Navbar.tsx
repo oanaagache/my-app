@@ -8,8 +8,6 @@ import { BiCart } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
-  //const totalQuantity = useSelector(useCartTotalSelector);
-  //const { totalQuantity } = props;
   let navigate = useNavigate();
 
   return (

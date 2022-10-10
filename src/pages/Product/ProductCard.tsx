@@ -25,10 +25,10 @@ export function ProductCard({ product }: ProductCardProps) {
 
       <Card.Body className="cardBody">
         <Card.Title className="cardTitle">
-          <span style={{ paddingRight: "80px" }}>{product.name}</span>
+          <span style={{ paddingRight: "20px" }}>{product.name}</span>
           <span>{product.price}$</span>
         </Card.Title>
-        <div style={{ paddingRight: "80px", fontWeight: "bold" }}>
+        <div style={{ paddingRight: "20px", fontWeight: "bold" }}>
           {product.category}
         </div>
       </Card.Body>
